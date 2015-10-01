@@ -1,0 +1,111 @@
+@import "reset";
+@import "compass/css3";
+@import "compass/layout/sticky-footer";
+@import "fonts";
+@import "variables";
+@import "defaults";
+@import "mixins";
+@import "helpers";
+
+body {
+    background: #fff;
+    padding-top: 120px;
+}
+body, input, textarea, button {
+    @include ptsans;
+}
+
+.header {
+    height: 120px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 30px;
+    
+    &:after {
+        display: block;
+        clear: both;
+        content: '';
+    }
+    &_logo {
+        width: 189px;
+        height: 47px;
+        background: url("../img/logo.png") 0 0 no-repeat;
+        float: left;
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &_menu {
+        float: right;
+        list-style-type: none;
+        text-transform: uppercase;
+        @include font(#626262, 15px, 16px);
+        padding-top: 18px;
+
+        li {
+            float: left;
+            margin-left: 50px;
+            position: relative;
+
+            &:before {
+                content: '';
+                border-left: solid 2px #acacac;
+                height: 14px;
+                position: absolute;
+                top: 1px;
+                left: -24px;
+            }
+            &:first-child {
+                margin-left: 0;
+
+                &:before {
+                    display: none;
+                }
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+                @include transition(color .2s);
+
+                &:hover {
+                    color: #00aeff;
+                }
+            }
+            &.active {
+                a {
+                    color: #00aeff;
+                }
+            }
+        }
+    }
+}
+.slider {
+    background: #31333e;
+    height: 550px;
+    .bx-wrapper {
+        .bx-viewport {
+            background: none;
+            border: none;
+            left: 0;
+            box-shadow: none;
+        }
+    }
+    &_container {
+        &_slide {
+            height: 600px;
+
+            &_item {
+                position: absolute;
+
+                &_text {
+                    @include font(#fff, 45px, 45px);
+                }
+            }
+        }
+    }
+}
